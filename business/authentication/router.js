@@ -1,7 +1,7 @@
-import { Router, response } from "express";
-import db from '../../config/db';
-import jwt from 'jsonwebtoken';
-var router = Router();
+var express = require("express");
+const db = require("../../config/db");
+var jwt = require("jsonwebtoken");
+var router = express.Router();
 
 router.post("/login", (req, res) => {
     const { username, password } = req.body;
@@ -18,3 +18,4 @@ router.post("/login", (req, res) => {
         return res.status(200).send(accessToken);
     })
 })
+module.exports = router;

@@ -1,6 +1,6 @@
-import { Router, response } from "express";
-import db from '../../config/db';
-var router = Router();
+var express = require("express");
+const db = require("../../config/db");
+var router = express.Router();
 
 // Get one user
 router.get("/:id", (req, res) => {
@@ -9,7 +9,7 @@ router.get("/:id", (req, res) => {
         if (err) {
             throw err;
         }
-        response.status(200).send(result);
+        res.status(200).send(result);
     })
 });
 
@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
         if (err) {
             throw err;
         }
-        response.status(200).send(result);
+        res.status(200).send(result);
     })
 });
 
@@ -30,7 +30,7 @@ router.post("/create", (req, res) => {
         if (err) {
             throw err;
         }
-        response.status(201).send(results);
+        res.status(201).send(results);
     })
 });
 
@@ -42,7 +42,7 @@ router.post("/update/:id", (req, res) => {
         if (err) {
             throw err;
         }
-        response.status(200).send(result);
+        res.status(200).send(result);
     })
 })
 
@@ -53,6 +53,8 @@ router.post("/delete/:id", (req, res) => {
         if (err) {
             throw err;
         }
-        response.status(200).send(result);
+        res.status(200).send(result);
     })
 })
+
+module.exports = router;

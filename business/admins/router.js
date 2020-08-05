@@ -1,6 +1,6 @@
-import { Router, response } from "express";
-import db from '../../config/db';
-var router = Router();
+var express = require("express");
+const db = require("../../config/db");
+var router = express.Router();
 
 // Get one user
 router.get("/:id", (req, res) => {
@@ -56,3 +56,4 @@ router.post("/delete/:id", (req, res) => {
         response.status(200).send(result);
     })
 })
+module.exports = router;
