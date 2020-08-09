@@ -1,6 +1,6 @@
 # API
 ## Etapes de déploiement
-###### Environnement (Linux)
+###### Environnement (Ubuntu)
 * Node.js et NPM
   - sudo apt-get update
   - sudo apt-get install nodejs
