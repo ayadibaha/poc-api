@@ -14,6 +14,11 @@
 * cd poc-api
 * npm i --production
 * pm2 start --name "backend" npm -- start --exp-backoff-restart-delay=0
+
+###### Déploiement continu
+* cd ~/poc-api
+* npm i --production
+* pm2 restart backend
 ---
 Pour vérifier l'état du serveur:
 * pm2 ls
@@ -21,7 +26,3 @@ Pour vérifier l'état du serveur:
 Pour voir les logs du serveur:
 * pm2 logs backend
 
-###### Déploiement continu
-* cd ~/poc-api
-* npm i --production
-* pm2 restart backend
