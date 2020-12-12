@@ -18,6 +18,9 @@ app.use("/users", usersRoutes);
 var adminRoutes = require("./business/admins/router");
 app.use("/admins", adminRoutes);
 
+var accountRoutes = require("./business/account/router");
+app.use("/accounts", accountRoutes);
+
 var authenticationRoutes = require("./business/authentication/router");
 app.use("/",authenticationRoutes);
 

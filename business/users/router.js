@@ -1,25 +1,26 @@
 var express = require("express");
-const db = require("../../config/db");
+const db = require("../../config/db").db;
 var router = express.Router();
 
 // Get one user
-router.get("/:id", (req, res) => {
-    const user_id = req && req.params && req.params.id ? parseInt(req.params.id) : 0;
-    db.query('SELECT * FROM users WHERE id=$1 and isAdmin=false', [user_id], (err, result) => {
-        if (err) {
-            throw err;
-        }
-        res.status(200).send(result);
-    })
-});
+// router.get("/:id", (req, res) => {
+//     const user_id = req && req.params && req.params.id ? parseInt(req.params.id) : 0;
+//     db.query('SELECT * FROM users WHERE id=$1 and isAdmin=false', [user_id], (err, result) => {
+//         if (err) {
+//             throw err;
+//         }
+//         res.status(200).send(result);
+//     })
+// });
 
 // Get all users
-router.get("/", (req, res) => {
-    db.query('SELECT * FROM users WHERE isAdmin=false', [user_id], (err, result) => {
+router.get("/all", (req, res) => {
+    db.query('SELECT u.id,u.username,a.balance FROM users u, account a WHERE u.id = a.id_user and u.isadmin = false', (err, result) => {
         if (err) {
             throw err;
         }
-        res.status(200).send(result);
+        console.log("result", result.rows);
+        res.status(200).send(result.rows);
     })
 });
 
